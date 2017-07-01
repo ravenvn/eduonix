@@ -9,4 +9,10 @@
       <li>Email: vinhdeptrai@gmail.com</li>
     </ul>
   </div>
+<% elsif params[:controller] == 'books'%>
+  <div class="list-group">
+    <% @categories.each do |c| %>
+      <%= link_to c.name, category_path(c), class:'list-group-item' %>
+    <% end %>
+  </div>
 <% end %>

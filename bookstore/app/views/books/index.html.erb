@@ -1,12 +1,13 @@
 <div id="books-index">
-  <div class="row">
-    <div class="col-sm-3">
-      <h3>Ruby On Rails Power</h3>
-      <%= image_tag('covers/chicken_soup.jpg') %>
-      <%= link_to 'Read More', book_path(1), class:'btn btn-primary' %>
+  <% @books.each_slice(4) do |group_books| %>
+    <div class="row">
+      <% group_books.each do |book| %>
+        <div class="col-sm-3">
+          <h3><%= book.title %></h3>
+          <%= image_tag(book.cover_path) %>
+          <%= link_to 'Read More', book_path(book), class:'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
-  </div>
+  <% end %>
 </div>
